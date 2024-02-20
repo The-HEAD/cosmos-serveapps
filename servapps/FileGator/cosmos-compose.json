@@ -3,7 +3,7 @@
       "form": [{
           "name": "mountPoint",
           "label": "To which local server folder do you want to deploy?",
-          "initialValue": "/opt/docker/appdata/{ServiceName}",
+          "initialValue": "/opt/docker/appdata/FileGator",
           "type": "text"
         }],
         "post-install": [{
