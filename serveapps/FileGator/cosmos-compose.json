@@ -14,7 +14,7 @@
                 "cosmos-persistent-env": "",
                 "cosmos-force-network-secured": "true",
                 "cosmos-auto-update": "true",
-                "cosmos-icon": "https://the-head.github.io/cosmos-serveapps/servapps/FileGator/icon.png"
+                "cosmos-icon": "https://the-head.github.io/cosmos-servapps/servapps/FileGator/icon.png"
             },
             "volumes": [{
                 "type": "bind"
