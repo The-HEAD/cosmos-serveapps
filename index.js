@@ -56,5 +56,5 @@ let apps = {
   "all": servappsJSON
 }
 
-fs.writeFileSync('./servapps.json', JSON.stringify(servappsJSON, null, 2))
+fs.writeFileSync('./servapps_timo.json', JSON.stringify(servappsJSON, null, 2))
 fs.writeFileSync('./index.json', JSON.stringify(apps, null, 2))
