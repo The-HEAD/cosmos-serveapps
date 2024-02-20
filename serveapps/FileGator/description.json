@@ -1,0 +1,9 @@
+{
+  "name": "FileGator",
+  "longDescription": "<p>FileGator has multi-user support so you can have admins and other users managing the files with different access permissions, roles and home folders. <br/> You can manage files inside your local repository folder (on your server's hard drive) or connect to other storage adapters.</p>",
+  "description": "FileGator is a free, open-source, self-hosted web application for managing files and folders.",
+  "tags": ["filegator", "open-source", "self-hosted", "file manager", "filemanager", "share", "download"],
+  "repository": "https://github.com/filegator/filegator/",
+  "image": "https://github.com/filegator/filegator/",
+  "supported_architectures": ["amd64", "arm64"]
+}
