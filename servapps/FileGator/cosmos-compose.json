@@ -17,14 +17,14 @@
                 "cosmos-icon": "https://the-head.github.io/cosmos-servapps/servapps/FileGator/icon.png"
             },
             "volumes": [{
-                "type": "bind"
+                "type": "bind",
                 "source": "/opt/docker/appdata/{ServiceName}/repository",
-                "target": "/var/www/filegator/repository",
+                "target": "/var/www/filegator/repository"
             },
             {
-                "type": "bind"
+                "type": "bind",
                 "source": "/opt/docker/appdata/{ServiceName}/private",
-                "target": "/var/www/filegator/private",
+                "target": "/var/www/filegator/private"
             },
             {
                 "Type": "bind",
