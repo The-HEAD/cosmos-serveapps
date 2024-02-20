@@ -1,5 +1,12 @@
 {
     "cosmos-installer": {
+      "form": [
+        {
+          "name": "mountPoint",
+          "label": "To which local server folder do you want to deploy?",
+          "initialValue": "/opt/docker/appdata/{ServiceName}",
+          "type": "text"
+        },
         "post-install": [{
             "type": "warning",
             "label": "After installation - please change the default Admin Account: admin/admin123 "
@@ -17,19 +24,19 @@
                 "cosmos-icon": "https://the-head.github.io/cosmos-servapps/servapps/FileGator/icon.png"
             },
             "volumes": [{
-                "type": "bind",
-                "source": "/opt/docker/appdata/{ServiceName}/repository",
-                "target": "/var/www/filegator/repository"
+                "source": "{Context.mountPoint}/repository",
+                "target": "/var/www/filegator/repository",
+                "type": "bind"
             },
             {
-                "type": "bind",
-                "source": "/opt/docker/appdata/{ServiceName}/private",
-                "target": "/var/www/filegator/private"
+                "source": "{Context.mountPoint}/private",
+                "target": "/var/www/filegator/private",
+                "type": "bind"
             },
             {
-                "Type": "bind",
-                "Source": "/opt/docker/appdata/{ServiceName}/conf/configuration.php",
-                "Target": "/var/www/filegator/configuration.php"
+                "Source": "{Context.mountPoint}/conf/configuration.php",
+                "Target": "/var/www/filegator/configuration.php",
+                "type": "bind"
             }],
             "routes": [{
                 "name": "{ServiceName}",
