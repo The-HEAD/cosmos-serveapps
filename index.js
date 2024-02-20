@@ -51,7 +51,7 @@ const _sc = ["Jellyfin", "Home Assistant", "Nextcloud"];
 const showcases = servappsJSON.filter((app) => _sc.includes(app.name));
 
 let apps = {
-    "source": configFile.url,
+    "source": configFile.marketIndexUrl,
     "showcase": showcases,
     "all": servappsJSON
 }
