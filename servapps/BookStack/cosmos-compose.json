@@ -31,7 +31,7 @@
 		"environment": [
 			"PUID=1000",
 			"PGID=1000",
-			"APP_URL=https://bookstack.example.com",
+			"APP_URL=https://{Hostnames.{StaticServiceName}.{StaticServiceName}.host}",
 			"DB_HOST={ServiceName}-db",
 			"DB_PORT=3306",
 			"DB_USER=bookstack",
@@ -98,5 +98,8 @@
 		}],
 		"restart": "unless-stopped"
 	}
+  },
+  "networks": {
+    "{ServiceName}-db": {}
   }
 }
