@@ -26,6 +26,8 @@
   	"{ServiceName}": {
 		"image": "lscr.io/linuxserver/bookstack",
 		"container_name": "{ServiceName}",
+		"UID": 1000,
+		"GID": 1000,
 		"environment": [
 			"PUID=1000",
 			"PGID=1000",
@@ -65,10 +67,7 @@
 				"Enabled": true
 			}
 		}],
-		"restart": "unless-stopped",
-		"depends_on": [
-			"bookstack-db"
-		]
+		"restart": "unless-stopped"
 	},
 	"{ServiceName}-db": {
 		"image": "lscr.io/linuxserver/mariadb",
@@ -76,6 +75,8 @@
 		"networks": {
 			"{ServiceName}-db": {}
 		},
+		"UID": 1000,
+		"GID": 1000,
 		"environment": [
 			"PUID=1000",
 			"PGID=1000",
@@ -87,7 +88,6 @@
 		],
 		"labels": {
 			"cosmos-persistent-env": "MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, MYSQL_ROOT_PASSWORD",
-			"cosmos-force-network-secured": "true",
 			"cosmos-stack": "{ServiceName}",
 			"cosmos-stack-main": "{ServiceName}"
 		},
