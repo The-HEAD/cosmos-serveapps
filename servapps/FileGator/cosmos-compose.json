@@ -1,11 +1,11 @@
 {
     "cosmos-installer": {
-      "form": [{
+      "form": {
           "name": "mountPoint",
           "label": "To which local server folder do you want to deploy?",
-          "initialValue": "/opt/docker/appdata/FileGator",
+          "initialValue": "/opt/docker/appdata/{ServiceName}",
           "type": "text"
-        }],
+        },
         "post-install": [{
             "type": "warning",
             "label": "After installation - please change the default Admin Account: admin/admin123 "
