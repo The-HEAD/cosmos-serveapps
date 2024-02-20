@@ -1,0 +1,9 @@
+{
+  "name": "BooKStack",
+  "longDescription": "<p>Bookstack is a free and open source Wiki designed for creating beautiful documentation. Featuring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease. <br/>Powered by SQL and including a Markdown editor for those who prefer it, BookStack is geared towards making documentation more of a pleasure than a chore</p>",
+  "description": "BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information.",
+  "tags": ["bookstack", "open-source", "documentation", "information", "knowledge"],
+  "repository": "https://github.com/linuxserver/docker-bookstack",
+  "image": "https://lscr.io/linuxserver/bookstack",
+  "supported_architectures": ["amd64", "arm64"]
+}
