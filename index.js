@@ -46,5 +46,15 @@ for (const file of servapps) {
   servappsJSON.push(servapp)
 }
 
+// add showcase
+const _sc = ["Jellyfin", "Home Assistant", "Nextcloud"];
+const showcases = servappsJSON.filter((app) => _sc.includes(app.name));
+
+let apps = {
+    "source": configFile.url,
+    "showcase": showcases,
+    "all": servappsJSON
+}
+
 fs.writeFileSync('./servapps.json', JSON.stringify(servappsJSON, null, 2))
 fs.writeFileSync('./index.json', JSON.stringify(apps, null, 2))
