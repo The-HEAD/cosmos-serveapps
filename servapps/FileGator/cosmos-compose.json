@@ -1,15 +1,19 @@
 {
     "cosmos-installer": {
-      "form": {
+      "form": [
+        {
           "name": "mountPoint",
           "label": "To which local server folder do you want to deploy?",
-          "initialValue": "/opt/docker/appdata/{ServiceName}",
+          "initialValue": "{DefaultDataPath}/FileGator",
           "type": "text"
-        },
-        "post-install": [{
-            "type": "warning",
-            "label": "After installation - please change the default Admin Account: admin/admin123 "
-        }]
+        }
+      ],
+      "post-install": [
+        {
+          "type": "warning",
+          "label": "After installation - please change the default Admin Account: admin/admin123 "
+        }
+      ]
     },
     "minVersion": "0.8.0",
     "services": {
@@ -20,7 +24,7 @@
                 "cosmos-persistent-env": "",
                 "cosmos-force-network-secured": "true",
                 "cosmos-auto-update": "true",
-                "cosmos-icon": "https://the-head.github.io/cosmos-servapps/servapps/FileGator/icon.png"
+                "cosmos-icon": "https://www.aretz.com/cosmos-servapps/servapps/FileGator/icon.png"
             },
             "volumes": [{
                 "source": "{Context.mountPoint}/repository",
@@ -30,11 +34,6 @@
             {
                 "source": "{Context.mountPoint}/private",
                 "target": "/var/www/filegator/private",
-                "type": "bind"
-            },
-            {
-                "Source": "{Context.mountPoint}/conf/configuration.php",
-                "Target": "/var/www/filegator/configuration.php",
                 "type": "bind"
             }],
             "routes": [{
