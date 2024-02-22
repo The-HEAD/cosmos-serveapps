@@ -1,0 +1,79 @@
+{
+    "cosmos-installer": {
+       "form": [
+          {
+            "name": "mountPoint",
+            "label": "To which local server folder do you want to deploy?",
+            "initialValue": "{DefaultDataPath}/wireguard-easy",
+            "type": "text"
+          },
+          {
+             "name": "port",
+             "label": "You will need to open UDP port 51820 for this app",
+             "type": "warning"
+          },
+          {
+             "name": "host",
+             "label": "What ip / domain do you want to set for connecting? (put the route or put the server ip if domain is blocked)",
+             "initialValue": "{StaticServiceName}.host",
+             "type": "text"
+          },
+          {
+             "name": "password",
+             "label": "Set a secure password to use this application",
+             "type": "password",
+             "initialValue": ""
+          }
+       ]
+    },
+    "services": {
+       "{ServiceName}": {
+          "container_name": "{ServiceName}",
+          "image": "ghcr.io/wg-easy/wg-easy",
+          "environment": [
+             "WG_HOST={Context.host}",
+             "PASSWORD={Context.password}"
+          ],
+          "volumes": [
+             {
+                "source": "{Context.mountPoint}",
+                "target": "/etc/wireguard",
+                "type": "bin"
+             }
+          ],
+          "ports": [
+             "51820:51820/udp"
+          ],
+          "cap_add": [
+             "NET_ADMIN",
+             "SYS_MODULE"
+          ],
+          "sysctls": [
+             "net.ipv4.conf.all.src_valid_mark=1",
+             "net.ipv4.ip_forward=1"
+          ],
+          "restart": "unless-stopped",
+          "labels": {
+             "cosmos-force-network-secured": "false",
+             "cosmos-auto-update": "true",
+             "cosmos-icon": "https://the-head.github.io/cosmos-servapps/servapps/WireGuard-Easy/icon.png",
+             "cosmos-persistent-env": "WG_HOST, PASSWORD"
+          },
+          "routes": [
+             {
+                "name": "{ServiceName}",
+                "description": "Expose {ServiceName} to the web",
+                "useHost": true,
+                "target": "http://{ServiceName}:51821",
+                "mode": "SERVAPP",
+                "Timeout": 14400000,
+                "ThrottlePerMinute": 12000,
+                "BlockCommonBots": true,
+                "SmartShield": {
+                   "Enabled": true
+                }
+             }
+          ]
+       }
+    }
+ }
