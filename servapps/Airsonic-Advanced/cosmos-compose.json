@@ -1,0 +1,71 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "mountPoint",
+        "label": "To which local server folder do you want to deploy?",
+        "initialValue": "{DefaultDataPath}/Airsonic",
+        "type": "text"
+      }
+    ],
+    "post-install": [
+      {
+        "type": "warning",
+        "label": "After installation - please change the default Admin Account: admin/admin123 "
+      }
+    ]
+  },
+  "minVersion": "0.9.0",
+  "services": {
+    "airsonic-advanced": {
+      "image": "lscr.io/linuxserver/airsonic-advanced:latest",
+      "container_name": "airsonic-advanced",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Europe/London"
+      ],
+      "volumes": [
+        {
+          "source": "{Context.mountPoint}/config",
+          "target": "/config",
+          "type": "bind"
+        },
+        {
+          "source": "{Context.mountPoint}/music",
+          "target": "/music",
+          "type": "bind"
+        },
+        {
+          "source": "{Context.mountPoint}/playlists",
+          "target": "/playlists",
+          "type": "bind"
+        },
+        {
+          "source": "{Context.mountPoint}/podcasts",
+          "target": "/podcasts",
+          "type": "bind"
+        },
+        {
+          "source": "{Context.mountPoint}/media",
+          "target": "/media",
+          "type": "bind"
+        }
+      ],
+      "routes": [{
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:4040",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+              "Enabled": true
+          }
+      }],
+      "restart": "unless-stopped"
+    }
+  }
+}
