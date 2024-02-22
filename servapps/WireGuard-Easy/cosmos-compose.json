@@ -15,7 +15,7 @@
           {
              "name": "host",
              "label": "What ip / domain do you want to set for connecting? (put the route or put the server ip if domain is blocked)",
-             "initialValue": "{StaticServiceName}.host",
+             "initialValue": "{Hostnames.{StaticServiceName}.host}",
              "type": "text"
           },
           {
