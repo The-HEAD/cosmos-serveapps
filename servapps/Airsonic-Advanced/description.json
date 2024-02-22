@@ -1,9 +1,0 @@
-{
-  "name": "Airsonic-Advanced",
-  "longDescription": "<p>Airsonic is a free, web-based media streamer, providing ubiquitous access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.</p>",
-  "description": "Airsonic-Advanced is a more modern implementation of the Airsonic fork with several key performance and feature enhancements. It adds and supersedes several features in Airsonic.",
-  "tags": ["airsonic", "music", "audio", "streaming", "dlna", "media-server", "media-center"],
-  "repository": "https://docs.linuxserver.io/images/docker-airsonic-advanced/",
-  "image": "https://lscr.io/linuxserver/airsonic-advanced",
-  "supported_architectures": ["amd64", "arm64"]
-}
