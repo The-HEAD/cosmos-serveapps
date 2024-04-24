@@ -55,7 +55,7 @@
         {
           "source": "{Context.mountPoint}/upload",
           "target": "/var/www/html/storage/upload",
-          "type": "volume"
+          "type": "bind"
         }
       ],
       "routes": [
@@ -87,7 +87,7 @@
         {
           "source": "{Context.mountPoint}/db",
           "target": "/var/lib/mysql",
-          "type": "volume"
+          "type": "bind"
         }
       ],
       "environment": [
@@ -131,6 +131,13 @@
         "APP_URL=http://localhost",
         "TRUSTED_PROXIES=**",
         "EXPECT_SECURE_URL=true"
+      ],
+      "volumes": [
+        {
+          "source": "{Context.mountPoint}/import",
+          "target": "/import",
+          "type": "bind"
+        }
       ],
       "routes": [
         {
